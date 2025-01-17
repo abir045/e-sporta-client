@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-card img {
+  /* width: 300px; Set fixed width */
+  height: 400px; /* Set fixed height */
+  object-fit: cover;
+}

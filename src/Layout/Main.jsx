@@ -8,9 +8,12 @@ import FooterNav from "../components/Footer";
 
 const Main = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="">
       <Header />
-      <Outlet />
+      <div className="">
+        <Outlet />
+      </div>
+
       <FooterNav />
     </div>
   );

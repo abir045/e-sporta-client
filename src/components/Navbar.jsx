@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Navbar } from "flowbite-react";
 import { MdFitnessCenter } from "react-icons/md";
 import gym from "../assets/gym.png";
+import { NavLink } from "react-router-dom";
 
 export default function Header() {
   return (
@@ -22,7 +23,8 @@ export default function Header() {
           Home
         </Navbar.Link>
         <Navbar.Link href="#"></Navbar.Link>
-        <Navbar.Link href="#">All trainer</Navbar.Link>
+        <NavLink to={"/alltrainers"}>All Trainers</NavLink>
+        {/* <Navbar.Link href="#">All trainer</Navbar.Link> */}
         <Navbar.Link href="#">All Classes</Navbar.Link>
         <Navbar.Link href="#">Community</Navbar.Link>
         <Navbar.Link href="#">Login</Navbar.Link>

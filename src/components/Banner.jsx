@@ -19,7 +19,7 @@ const HeroBanner = () => {
             <h3 className="text-white text-4xl">Keep Training</h3>
             <p className="text-white text-xl mt-10">
               Whether your aim is to loose weight, tone up, gain weight we can
-              put together Link gym programe or recommend.
+              put together a gym program specially tailored for you.
             </p>
             <Button className="mt-10">classes</Button>
           </div>
