@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../pages/Home";
 import AllTrainers from "../pages/AllTrainers";
 import TrainerDetails from "../pages/TrainerDetails";
+import Register from "../pages/Register";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
         element: <TrainerDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/trainers/${params.id}`),
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },
