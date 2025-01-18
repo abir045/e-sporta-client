@@ -8,7 +8,7 @@ const TrainerCard = ({ item }) => {
   return (
     <div>
       <Card
-        className="max-w-sm"
+        className="px-5"
         imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc={item.profileImage}
       >

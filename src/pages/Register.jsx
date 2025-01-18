@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../providers/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { Button, Card } from "flowbite-react";
 import Swal from "sweetalert2";
@@ -28,6 +28,7 @@ const Register = () => {
           const userInfo = {
             name: data.name,
             email: data.email,
+            role: "member",
           };
 
           axiosPublic.post("/users", userInfo).then((res) => {
@@ -54,7 +55,7 @@ const Register = () => {
       <h2 className="text-3xl text-center">Register Now</h2>
 
       <div className="mt-10">
-        <Card href="#" className="max-w-5xl mx-auto">
+        <Card className="max-w-5xl mx-auto">
           <form onSubmit={handleSubmit(onSubmit)} className="card-body">
             <div className="form-control flex flex-col">
               <label className="label">
@@ -157,6 +158,15 @@ const Register = () => {
               </Button>
             </div>
           </form>
+          <p className="p-2">
+            <small>
+              Already have an account?{" "}
+              <Link className="text-red-500" to={"/login"}>
+                {" "}
+                Login
+              </Link>
+            </small>
+          </p>
         </Card>
       </div>
     </div>
