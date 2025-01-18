@@ -1,5 +1,7 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { Link } from "react-router-dom";
+import { FaFacebook } from "react-icons/fa";
 
 // eslint-disable-next-line react/prop-types
 const TrainerCard = ({ item }) => {
@@ -24,6 +26,7 @@ const TrainerCard = ({ item }) => {
           <span className="font-bold">Expertise</span>{" "}
           <span className="font-semibold">{item.expertise}</span>
         </p>
+
         <ul>
           {item.availableSlots.map((slot, index) => (
             <li className="font-semibold" key={index}>
@@ -31,7 +34,18 @@ const TrainerCard = ({ item }) => {
             </li>
           ))}
         </ul>
-        <Button>Know More</Button>
+
+        <p>
+          {" "}
+          <Link to={item.socialLink}>
+            {/* <Button className="bg-gray-600"> */}
+            <FaFacebook className="text-2xl" />
+            {/* </Button> */}
+          </Link>
+        </p>
+        <Link to={`/alltrainers/${item._id}`}>
+          <Button>Know More</Button>
+        </Link>
       </Card>
     </div>
   );
