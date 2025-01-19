@@ -4,7 +4,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const TrainerBooking = () => {
   const location = useLocation();
-  const { trainer, selectedSlot } = location.state || {};
+  const { trainer, selectedSlot, selectedClass } = location.state || {};
   const [selectedPackage, setSelectedPackage] = useState("basic");
 
   console.log(trainer, selectedSlot);
@@ -69,6 +69,13 @@ const TrainerBooking = () => {
           </div>
 
           <div>
+            <h3 className="text-xl font-bold">Selected Class:</h3>
+            <p className="text-gray-700 font-semibold ">
+              {selectedClass || trainer.classes[0]}
+            </p>
+          </div>
+
+          <div>
             <p className="font-bold">Classes:</p>
             <ul>
               {trainer.classes.map((item, index) => (
@@ -127,6 +134,7 @@ const TrainerBooking = () => {
               trainer: trainer,
               selectedSlot: selectedSlot,
               ChosenPackage: getSelectedPackageObj(),
+              selectedClass: selectedClass,
             }}
           >
             <Button className="mt-6">Join Now</Button>

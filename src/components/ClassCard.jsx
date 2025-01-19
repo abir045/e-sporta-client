@@ -16,6 +16,8 @@ const ClassCard = ({ item }) => {
     );
   };
 
+  const selectedClass = item.className;
+
   return (
     <div>
       <Card
@@ -42,7 +44,12 @@ const ClassCard = ({ item }) => {
             return (
               <div className="flex gap-2" key={data?._id}>
                 {/* <span>{data.trainerName}</span> */}
-                <Link to={`/alltrainers/${data?._id}`}>
+                <Link
+                  state={{
+                    selectedClass: selectedClass,
+                  }}
+                  to={`/alltrainers/${data?._id}`}
+                >
                   <img
                     className="w-20 h-20 object-cover rounded-full mb-5"
                     src={data?.profileImage}

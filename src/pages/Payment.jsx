@@ -2,11 +2,17 @@ import { Card } from "flowbite-react";
 import React from "react";
 import { useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../components/CheckoutForm";
 
 const Payment = () => {
   const location = useLocation();
-  const { trainer, selectedSlot, ChosenPackage } = location.state || {};
+  const { trainer, selectedSlot, ChosenPackage, selectedClass } =
+    location.state || {};
   const { user } = useAuth();
+  const stripePromise = loadStripe(import.meta.env.VITE_PAYMENT_GATEWAY_PK);
+
   console.log(trainer, selectedSlot, ChosenPackage);
   return (
     <div>
@@ -29,6 +35,11 @@ const Payment = () => {
           </div>
 
           <div className="mt-4">
+            <p className="font-bold">Selected Class:</p>
+            <p className="text-lg">{selectedClass || trainer.classes[0]}</p>
+          </div>
+
+          <div className="mt-4">
             <p className="font-bold">Price:</p>
             <p className="text-lg">{ChosenPackage.price}$</p>
           </div>
@@ -46,6 +57,17 @@ const Payment = () => {
             far, in reverse chronological order.
           </p>
         </Card>
+      </div>
+      {/* payment  */}
+      <div>
+        <Elements stripe={stripePromise}>
+          <CheckoutForm
+            price={ChosenPackage.price}
+            ChosenPackage={ChosenPackage}
+            selectedClass={selectedClass}
+            trainerClass={trainer.classes[0]}
+          />
+        </Elements>
       </div>
     </div>
   );

@@ -1,9 +1,11 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 const TrainerDetails = () => {
   const data = useLoaderData();
+  const location = useLocation();
+
   const {
     trainerName,
     profileImage,
@@ -15,6 +17,7 @@ const TrainerDetails = () => {
     expertise,
     qualification,
   } = data;
+  const { selectedClass } = location.state || {};
   return (
     <div className="flex flex-col items-center">
       <h2 className="text-3xl font-bold my-10">Trainer Details</h2>
@@ -60,6 +63,7 @@ const TrainerDetails = () => {
                 state={{
                   trainer: data,
                   selectedSlot: item,
+                  selectedClass: selectedClass,
                 }}
               >
                 <Button className="font-semibold">{item}</Button>
