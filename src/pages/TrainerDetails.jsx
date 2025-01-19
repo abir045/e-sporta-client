@@ -1,6 +1,6 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const TrainerDetails = () => {
   const data = useLoaderData();
@@ -54,9 +54,16 @@ const TrainerDetails = () => {
           <p className="font-bold">Available Slots:</p>
           <div className="flex flex-col gap-6">
             {availableSlots.map((item, index) => (
-              <Button className="font-semibold" key={index}>
-                {item}
-              </Button>
+              <Link
+                key={index}
+                to={"/booking"}
+                state={{
+                  trainer: data,
+                  selectedSlot: item,
+                }}
+              >
+                <Button className="font-semibold">{item}</Button>
+              </Link>
             ))}
           </div>
         </Card>

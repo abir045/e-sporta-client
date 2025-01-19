@@ -6,6 +6,8 @@ import TrainerDetails from "../pages/TrainerDetails";
 import Register from "../pages/Register";
 import Login from "../pages/Login";
 import AllClasses from "../pages/AllClasses";
+import TrainerBooking from "../pages/TrainerBooking";
+import Payment from "../pages/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +28,14 @@ export const router = createBrowserRouter([
         element: <TrainerDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/trainers/${params.id}`),
+      },
+      {
+        path: "/booking",
+        element: <TrainerBooking />,
+      },
+      {
+        path: "/payment",
+        element: <Payment />,
       },
       {
         path: "/classes",

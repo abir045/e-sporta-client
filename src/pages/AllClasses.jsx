@@ -5,6 +5,7 @@ import ClassCard from "../components/ClassCard";
 const AllClasses = () => {
   const [classesData] = useClasses();
   console.log(classesData);
+  
 
   return (
     <div>

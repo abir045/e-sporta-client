@@ -3,6 +3,8 @@ import React from "react";
 import useTrainer from "../hooks/useTrainer";
 import { key } from "localforage";
 import { Link } from "react-router-dom";
+import { MdCategory } from "react-icons/md";
+import { GiDuration } from "react-icons/gi";
 
 const ClassCard = ({ item }) => {
   const [trainersData] = useTrainer();
@@ -27,23 +29,23 @@ const ClassCard = ({ item }) => {
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {item.details}
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          {item.category}
+        <p className="font-semibold flex items-center gap-2 text-gray-700 dark:text-gray-400">
+          <MdCategory className="text-2xl" /> {item.category}
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          {item.duration}
+        <p className="font-semibold flex items-center gap-2 text-gray-700 dark:text-gray-400">
+          <GiDuration className="text-2xl" /> {item.duration}
         </p>
         <div>
           {item.trainerName.map((trainerName, index) => {
             const data = findTrainerData(trainerName);
             console.log(data);
             return (
-              <div className="flex gap-2" key={data._id}>
+              <div className="flex gap-2" key={data?._id}>
                 {/* <span>{data.trainerName}</span> */}
-                <Link to={`/alltrainers/${data._id}`}>
+                <Link to={`/alltrainers/${data?._id}`}>
                   <img
                     className="w-20 h-20 object-cover rounded-full mb-5"
-                    src={data.profileImage}
+                    src={data?.profileImage}
                     alt=""
                   />
                 </Link>
