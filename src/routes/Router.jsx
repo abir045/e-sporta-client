@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import AllClasses from "../pages/AllClasses";
 import TrainerBooking from "../pages/TrainerBooking";
 import Payment from "../pages/Payment";
+import BecomeTrainer from "../pages/BecomeTrainer";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
       {
         path: "/classes",
         element: <AllClasses />,
+      },
+      {
+        path: "/becomeTrainer",
+        element: <BecomeTrainer />,
       },
       {
         path: "/register",

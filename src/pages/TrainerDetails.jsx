@@ -75,7 +75,9 @@ const TrainerDetails = () => {
 
       <div className="mt-10">
         <h2 className="text-3xl font-bold mt-10">Be a Trainer</h2>
-        <Button className="mt-10 w-full">Become a Trainer</Button>
+        <Link to={"/becomeTrainer"}>
+          <Button className="mt-10 w-full">Become a Trainer</Button>
+        </Link>
       </div>
     </div>
   );
