@@ -9,6 +9,9 @@ import AllClasses from "../pages/AllClasses";
 import TrainerBooking from "../pages/TrainerBooking";
 import Payment from "../pages/Payment";
 import BecomeTrainer from "../pages/BecomeTrainer";
+import DashBoard from "../Layout/DashBoard";
+import AllUsers from "../pages/Dashboard/AllUsers";
+import Subscribers from "../pages/Dashboard/Subscribers";
 
 export const router = createBrowserRouter([
   {
@@ -53,6 +56,20 @@ export const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashBoard />,
+    children: [
+      {
+        path: "/dashboard/users",
+        element: <AllUsers />,
+      },
+      {
+        path: "/dashboard/newsSubscribers",
+        element: <Subscribers />,
       },
     ],
   },

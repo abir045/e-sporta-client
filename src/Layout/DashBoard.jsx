@@ -1,0 +1,44 @@
+import React from "react";
+import { FaUser } from "react-icons/fa";
+import { MdCardMembership } from "react-icons/md";
+import { NavLink, Outlet } from "react-router-dom";
+
+const DashBoard = () => {
+  return (
+    <div>
+      <div className="flex">
+        {/* dashboard side bar */}
+        <div className="w-64 min-h-screen bg-green-400 pl-4">
+          <ul>
+            <li>
+              <NavLink
+                className="flex items-center gap-2 mt-4"
+                to="/dashboard/users"
+              >
+                {" "}
+                <FaUser /> All Users
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                className="flex items-center gap-2 mt-4"
+                to="/dashboard/newsSubscribers"
+              >
+                <MdCardMembership />
+                All Newsletter subscribers
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+
+        {/* dashboard content */}
+        <div className="flex-1 p-8">
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default DashBoard;
