@@ -5,7 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 const useTrainer = () => {
   const axiosPublic = useAxiosPublic();
 
-  const { data: trainersData = [] } = useQuery({
+  const { data: trainersData = [], refetch } = useQuery({
     queryKey: ["trainers"],
     queryFn: async () => {
       const res = await axiosPublic.get("/trainers");
@@ -13,7 +13,7 @@ const useTrainer = () => {
     },
   });
 
-  return [trainersData];
+  return [trainersData, refetch];
 };
 
 export default useTrainer;

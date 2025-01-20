@@ -1,6 +1,7 @@
 import React from "react";
 import { FaUser } from "react-icons/fa";
 import { MdCardMembership } from "react-icons/md";
+import { SiTrainerroad } from "react-icons/si";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
@@ -27,6 +28,15 @@ const DashBoard = () => {
               >
                 <MdCardMembership />
                 All Newsletter subscribers
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink
+                to="/dashboard/trainers"
+                className="flex items-center gap-2 mt-4"
+              >
+                <SiTrainerroad /> All Trainers
               </NavLink>
             </li>
           </ul>

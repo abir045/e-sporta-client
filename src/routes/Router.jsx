@@ -12,6 +12,7 @@ import BecomeTrainer from "../pages/BecomeTrainer";
 import DashBoard from "../Layout/DashBoard";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import Subscribers from "../pages/Dashboard/Subscribers";
+import Trainers from "../pages/Dashboard/Trainers";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/newsSubscribers",
         element: <Subscribers />,
+      },
+      {
+        path: "/dashboard/trainers",
+        element: <Trainers />,
       },
     ],
   },
