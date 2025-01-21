@@ -13,6 +13,8 @@ import DashBoard from "../Layout/DashBoard";
 import AllUsers from "../pages/Dashboard/AllUsers";
 import Subscribers from "../pages/Dashboard/Subscribers";
 import Trainers from "../pages/Dashboard/Trainers";
+import AppliedTrainer from "../pages/Dashboard/AppliedTrainer";
+import AppliedTrainerDetails from "../pages/Dashboard/AppliedTrainerDetails";
 
 export const router = createBrowserRouter([
   {
@@ -75,6 +77,16 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/trainers",
         element: <Trainers />,
+      },
+      {
+        path: "/dashboard/appliedTrainer",
+        element: <AppliedTrainer />,
+      },
+      {
+        path: "/dashboard/appliedTrainers/:id",
+        element: <AppliedTrainerDetails />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/appliedTrainer/${params.id}`),
       },
     ],
   },

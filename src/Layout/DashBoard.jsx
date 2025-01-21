@@ -2,6 +2,7 @@ import React from "react";
 import { FaUser } from "react-icons/fa";
 import { MdCardMembership } from "react-icons/md";
 import { SiTrainerroad } from "react-icons/si";
+import { VscGitStashApply } from "react-icons/vsc";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
@@ -37,6 +38,14 @@ const DashBoard = () => {
                 className="flex items-center gap-2 mt-4"
               >
                 <SiTrainerroad /> All Trainers
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/appliedTrainer"
+                className="flex items-center gap-2 mt-4"
+              >
+                <VscGitStashApply /> Applied Trainer
               </NavLink>
             </li>
           </ul>
