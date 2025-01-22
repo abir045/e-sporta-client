@@ -43,11 +43,18 @@ const TrainerDetails = () => {
           </p>
           <p className="font-normal text-gray-700 dark:text-gray-400">
             <span className="font-bold">Expertise:</span>{" "}
-            <span className="font-semibold">{expertise}</span>
+            {/* <span className="font-semibold">{expertise}</span> */}
           </p>
+          <ul>
+            {expertise.map((item, index) => (
+              <li className="font-semibold" key={index}>
+                {item}
+              </li>
+            ))}
+          </ul>
           <p className="font-bold">Classes:</p>
           <ul>
-            {classes.map((item, index) => (
+            {classes?.map((item, index) => (
               <li className="font-semibold" key={index}>
                 {item}
               </li>
@@ -56,7 +63,7 @@ const TrainerDetails = () => {
 
           <p className="font-bold">Available Slots:</p>
           <div className="flex flex-col gap-6">
-            {availableSlots.map((item, index) => (
+            {availableSlots?.map((item, index) => (
               <Link
                 key={index}
                 to={"/booking"}

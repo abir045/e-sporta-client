@@ -22,10 +22,19 @@ const TrainerCard = ({ item }) => {
           <span className="font-bold">Years Of Experience:</span>{" "}
           <span className="font-semibold">{item.yearsOfExperience} </span>
         </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
+        {/* <p className="font-normal text-gray-700 dark:text-gray-400">
           <span className="font-bold">Expertise</span>{" "}
           <span className="font-semibold">{item.expertise}</span>
-        </p>
+        </p> */}
+
+        <p className="font-bold text-gray-700 dark:text-gray-400">Expertise:</p>
+        <ul>
+          {item.expertise.map((item, index) => (
+            <li className="font-semibold" key={index}>
+              {item}
+            </li>
+          ))}
+        </ul>
 
         <ul>
           {item.availableSlots.map((slot, index) => (

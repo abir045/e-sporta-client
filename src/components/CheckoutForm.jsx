@@ -12,6 +12,8 @@ const CheckoutForm = ({
   ChosenPackage,
   selectedClass,
   trainerClass,
+  selectedSlot,
+  trainer,
 }) => {
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -25,6 +27,8 @@ const CheckoutForm = ({
   const SelectedPackage = ChosenPackage;
   const ClassName = selectedClass;
   const ClassOfTrainer = trainerClass;
+  const slotSelected = selectedSlot;
+
   console.log(price);
 
   useEffect(() => {
@@ -87,6 +91,8 @@ const CheckoutForm = ({
         // const date = new Date();
 
         const payment = {
+          trainerName: trainer.trainerName,
+          trainerEmail: trainer.email,
           email: user.email,
           price: totalPrice,
           transactionId: paymentIntent.id,
@@ -94,6 +100,7 @@ const CheckoutForm = ({
           packageId: SelectedPackage.id,
           packageName: SelectedPackage.name,
           className: ClassName || ClassOfTrainer,
+          selectedSlot: slotSelected,
         };
 
         const res = await axiosSecure.post("/payments", payment);

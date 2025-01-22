@@ -64,7 +64,7 @@ const TrainerBooking = () => {
             />
             <div>
               <h3 className="text-xl font-bold">{trainer.trainerName}</h3>
-              <p className="text-gray-600">{trainer.expertise}</p>
+              {/* <p className="text-gray-600">{trainer.expertise}</p> */}
             </div>
           </div>
 
@@ -89,6 +89,11 @@ const TrainerBooking = () => {
           <div className="mt-4">
             <p className="font-bold">Selected Time Slot:</p>
             <p className="text-lg">{selectedSlot}</p>
+          </div>
+
+          <div className="mt-4">
+            <p className="font-bold">Trainer Email:</p>
+            <p className="text-lg">{trainer.email}</p>
           </div>
 
           <h3 className="text-2xl font-bold">Select a Package</h3>

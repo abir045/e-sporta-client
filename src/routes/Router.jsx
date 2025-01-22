@@ -15,6 +15,8 @@ import Subscribers from "../pages/Dashboard/Subscribers";
 import Trainers from "../pages/Dashboard/Trainers";
 import AppliedTrainer from "../pages/Dashboard/AppliedTrainer";
 import AppliedTrainerDetails from "../pages/Dashboard/AppliedTrainerDetails";
+import Balance from "../pages/Dashboard/Balance";
+import AddNewClass from "../pages/Dashboard/AddNewClass";
 
 export const router = createBrowserRouter([
   {
@@ -87,6 +89,14 @@ export const router = createBrowserRouter([
         element: <AppliedTrainerDetails />,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/appliedTrainer/${params.id}`),
+      },
+      {
+        path: "/dashboard/balance",
+        element: <Balance />,
+      },
+      {
+        path: "/dashboard/addNewClass",
+        element: <AddNewClass />,
       },
     ],
   },

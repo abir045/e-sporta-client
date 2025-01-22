@@ -4,12 +4,15 @@ import { MdEmail } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import useAuth from "../../hooks/useAuth";
 
 const AppliedTrainerDetails = () => {
   const trainerData = useLoaderData();
   const axiosSecure = useAxiosSecure();
   const [openModal, setOpenModal] = useState(true);
   const [rejectionFeedback, setRejectionFeedback] = useState("");
+
+  const { user } = useAuth();
 
   console.log(trainerData);
 
@@ -28,10 +31,14 @@ const AppliedTrainerDetails = () => {
     role: "trainer",
   };
 
+  console.log(trainerData._id);
+
   const handleAcceptTrainer = (trainerData) => {
     axiosSecure.post("/trainers", trainerInfo).then((res) => {
       if (res.data.insertedId) {
+        axiosSecure.patch(`/trainers/accept/${user?.email}`);
         axiosSecure.delete(`/appliedTrainer/${trainerData._id}`);
+
         Swal.fire({
           position: "top-end",
           icon: "success",

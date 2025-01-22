@@ -21,9 +21,20 @@ const Payment = () => {
       </h2>
       <div>
         <Card className="w-full max-w-4xl mx-auto">
-          <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            {trainer.trainerName}
-          </h5>
+          <div>
+            <p className="font-bold ">Trainer Name:</p>
+            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              {trainer.trainerName}
+            </h5>
+          </div>
+
+          <div>
+            <p className="font-bold">Trainer Email:</p>
+            <h5 className="text-xl  tracking-tight text-gray-900 dark:text-white">
+              {trainer.email}
+            </h5>
+          </div>
+
           <div className="mt-4">
             <p className="font-bold">Selected Time Slot:</p>
             <p className="text-lg">{selectedSlot}</p>
@@ -52,10 +63,6 @@ const Payment = () => {
             <p className="font-bold">Your Email:</p>
             <p className="text-lg">{user.email}</p>
           </div>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            Here are the biggest enterprise technology acquisitions of 2021 so
-            far, in reverse chronological order.
-          </p>
         </Card>
       </div>
       {/* payment  */}
@@ -66,6 +73,8 @@ const Payment = () => {
             ChosenPackage={ChosenPackage}
             selectedClass={selectedClass}
             trainerClass={trainer.classes[0]}
+            selectedSlot={selectedSlot}
+            trainer={trainer}
           />
         </Elements>
       </div>

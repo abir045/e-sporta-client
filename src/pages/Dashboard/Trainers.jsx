@@ -4,10 +4,12 @@ import { Button, Table } from "flowbite-react";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useAuth from "../../hooks/useAuth";
 
 const Trainers = () => {
   const [trainersData, refetch] = useTrainer();
   const axiosSecure = useAxiosSecure();
+  const { user } = useAuth();
 
   const handleRemoveTrainer = (trainer) => {
     Swal.fire({
@@ -20,10 +22,12 @@ const Trainers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/trainers/admin/${trainer._id}`).then((res) => {
+        axiosSecure.delete(`/trainers/${trainer._id}`).then((res) => {
           console.log(res.data);
-          if (res.data.modifiedCount > 0) {
+          if (res.data.deletedCount > 0) {
             refetch();
+            axiosSecure.patch(`/trainers/delete/${user?.email}`);
+
             Swal.fire({
               position: "top-end",
               icon: "success",
