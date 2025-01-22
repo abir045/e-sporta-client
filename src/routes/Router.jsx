@@ -17,6 +17,7 @@ import AppliedTrainer from "../pages/Dashboard/AppliedTrainer";
 import AppliedTrainerDetails from "../pages/Dashboard/AppliedTrainerDetails";
 import Balance from "../pages/Dashboard/Balance";
 import AddNewClass from "../pages/Dashboard/AddNewClass";
+import TrainerManageSlot from "../pages/Dashboard/TrainerManageSlot";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addNewClass",
         element: <AddNewClass />,
+      },
+      {
+        path: "/dashboard/manageSlots",
+        element: <TrainerManageSlot />,
       },
     ],
   },

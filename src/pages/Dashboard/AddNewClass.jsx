@@ -1,7 +1,7 @@
 import { Button, Label, Textarea, TextInput } from "flowbite-react";
 import React from "react";
 import useTrainer from "../../hooks/useTrainer";
-import { useForm, Controller, reset } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import Select from "react-select";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";

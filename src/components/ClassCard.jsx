@@ -21,7 +21,7 @@ const ClassCard = ({ item }) => {
   return (
     <div>
       <Card
-        className=""
+        className="h-full"
         imgAlt="Meaningful alt text for an image that is not purely decorative"
         imgSrc={item?.image}
       >
