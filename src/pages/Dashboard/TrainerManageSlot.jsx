@@ -84,7 +84,7 @@ const TrainerManageSlot = () => {
             <Table.HeadCell>Class Name</Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            {trainer?.availableSlots.map((slot, index) => {
+            {trainer?.availableSlots?.map((slot, index) => {
               const bookingInfo = slotBookings[slot] || {};
               return (
                 <Table.Row

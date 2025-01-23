@@ -1,7 +1,12 @@
 import React from "react";
 import { FaBalanceScale, FaHome, FaUser } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
-import { MdAddBox, MdCardMembership, MdManageAccounts } from "react-icons/md";
+import {
+  MdAddBox,
+  MdAddToPhotos,
+  MdCardMembership,
+  MdManageAccounts,
+} from "react-icons/md";
 import { RiUserCommunityFill } from "react-icons/ri";
 import { SiTrainerroad } from "react-icons/si";
 import { VscGitStashApply } from "react-icons/vsc";
@@ -72,6 +77,14 @@ const DashBoard = () => {
                 className="flex items-center gap-2 mt-4"
               >
                 <MdManageAccounts /> Manage Slots
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/addNewSlot"
+                className="flex items-center gap-2 mt-4"
+              >
+                <MdAddToPhotos /> Add a new Slot
               </NavLink>
             </li>
 
