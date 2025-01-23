@@ -1,4 +1,5 @@
 import React from "react";
+import { AiOutlineFileAdd } from "react-icons/ai";
 import { FaBalanceScale, FaHome, FaUser } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
 import {
@@ -85,6 +86,14 @@ const DashBoard = () => {
                 className="flex items-center gap-2 mt-4"
               >
                 <MdAddToPhotos /> Add a new Slot
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/addNewForum"
+                className="flex items-center gap-2 mt-4"
+              >
+                <AiOutlineFileAdd /> Add a new Post to Forum
               </NavLink>
             </li>
 

@@ -19,6 +19,7 @@ import Balance from "../pages/Dashboard/Balance";
 import AddNewClass from "../pages/Dashboard/AddNewClass";
 import TrainerManageSlot from "../pages/Dashboard/TrainerManageSlot";
 import AddNewSlot from "../pages/Dashboard/AddNewSlot";
+import AddNewForum from "../pages/Dashboard/AddNewForum";
 
 export const router = createBrowserRouter([
   {
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addNewSlot",
         element: <AddNewSlot />,
+      },
+      {
+        path: "/dashboard/addNewForum",
+        element: <AddNewForum />,
       },
     ],
   },
