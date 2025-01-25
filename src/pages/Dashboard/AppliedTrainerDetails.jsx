@@ -37,7 +37,7 @@ const AppliedTrainerDetails = () => {
   const handleAcceptTrainer = (trainerData) => {
     axiosSecure.post("/trainers", trainerInfo).then((res) => {
       if (res.data.insertedId) {
-        axiosSecure.patch(`/trainers/accept/${user?.email}`);
+        axiosSecure.patch(`/trainers/accept/${trainerData.email}`);
         axiosSecure.delete(`/appliedTrainer/${trainerData._id}`);
 
         Swal.fire({
@@ -150,9 +150,9 @@ const AppliedTrainerDetails = () => {
             ))}
           </ul>
 
-          <p className="font-normal  dark:text-gray-400">
+          {/* <p className="font-normal  dark:text-gray-400">
             <span className="font-bold ">Role:</span> {trainerData.role}
-          </p>
+          </p> */}
 
           <div className="flex justify-between">
             <Button onClick={() => handleAcceptTrainer(trainerData)}>

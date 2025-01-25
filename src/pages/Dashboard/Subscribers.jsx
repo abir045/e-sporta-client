@@ -25,7 +25,7 @@ const Subscribers = () => {
             <Table.HeadCell>Email</Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            {subscribers.map((item) => (
+            {subscribers?.map((item) => (
               <Table.Row
                 key={item._id}
                 className="bg-white dark:border-gray-700 dark:bg-gray-800"

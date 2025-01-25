@@ -26,7 +26,7 @@ const Trainers = () => {
           console.log(res.data);
           if (res.data.deletedCount > 0) {
             refetch();
-            axiosSecure.patch(`/trainers/delete/${user?.email}`);
+            axiosSecure.patch(`/trainers/delete/${trainer?.email}`);
 
             Swal.fire({
               position: "top-end",
@@ -58,19 +58,19 @@ const Trainers = () => {
           <Table.Body className="divide-y">
             {trainersData.map((trainer) => (
               <Table.Row
-                key={trainer._id}
+                key={trainer?._id}
                 className="bg-white dark:border-gray-700 dark:bg-gray-800"
               >
                 <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                   <img
-                    src={trainer.profileImage}
+                    src={trainer?.profileImage}
                     className="w-20 h-20 rounded-full object-cover"
                     alt=""
                   />
                 </Table.Cell>
-                <Table.Cell>{trainer.trainerName}</Table.Cell>
-                <Table.Cell>{trainer.email}</Table.Cell>
-                <Table.Cell>{trainer.role}</Table.Cell>
+                <Table.Cell>{trainer?.trainerName}</Table.Cell>
+                <Table.Cell>{trainer?.email}</Table.Cell>
+                <Table.Cell>{trainer?.role}</Table.Cell>
                 <Table.Cell>
                   <Button
                     onClick={() => handleRemoveTrainer(trainer)}
