@@ -25,6 +25,7 @@ import ProfilePage from "../pages/Dashboard/ProfilePage";
 import TrainerBooked from "../pages/Dashboard/TrainerBooked";
 import AdminRoute from "./AdminRoute";
 import TrainerRoute from "./TrainerRoute";
+import AdminTrainerRoute from "./AdminTrainerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -146,7 +147,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/addNewForum",
-        element: <AddNewForum />,
+        element: (
+          <AdminTrainerRoute>
+            <AddNewForum />
+          </AdminTrainerRoute>
+        ),
       },
 
       {
