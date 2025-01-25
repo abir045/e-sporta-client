@@ -23,6 +23,7 @@ import AddNewForum from "../pages/Dashboard/AddNewForum";
 import ActivityLog from "../pages/Dashboard/ActivityLog";
 import ProfilePage from "../pages/Dashboard/ProfilePage";
 import TrainerBooked from "../pages/Dashboard/TrainerBooked";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -74,21 +75,35 @@ export const router = createBrowserRouter([
     path: "/dashboard",
     element: <DashBoard />,
     children: [
-      {
-        path: "/dashboard/users",
-        element: <AllUsers />,
-      },
+      // {
+      //   path: "/dashboard/users",
+      //   element: <AllUsers />,
+      // },
       {
         path: "/dashboard/newsSubscribers",
-        element: <Subscribers />,
+
+        element: (
+          <AdminRoute>
+            <Subscribers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/trainers",
-        element: <Trainers />,
+
+        element: (
+          <AdminRoute>
+            <Trainers />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/appliedTrainer",
-        element: <AppliedTrainer />,
+        element: (
+          <AdminRoute>
+            <AppliedTrainer />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/appliedTrainers/:id",
@@ -98,11 +113,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/balance",
-        element: <Balance />,
+        element: (
+          <AdminRoute>
+            <Balance />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/addNewClass",
-        element: <AddNewClass />,
+        element: (
+          <AdminRoute>
+            <AddNewClass />
+          </AdminRoute>
+        ),
       },
       {
         path: "/dashboard/manageSlots",
