@@ -6,6 +6,7 @@ import { LuLogs } from "react-icons/lu";
 import {
   MdAddBox,
   MdAddToPhotos,
+  MdBookmarks,
   MdCardMembership,
   MdManageAccounts,
 } from "react-icons/md";
@@ -111,6 +112,14 @@ const DashBoard = () => {
                 className="flex items-center gap-2 mt-4"
               >
                 <RiProfileFill /> Profile Page
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/trainerBooked"
+                className="flex items-center gap-2 mt-4"
+              >
+                <MdBookmarks /> Trainer booked Page
               </NavLink>
             </li>
 

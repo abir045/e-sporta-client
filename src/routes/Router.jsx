@@ -22,6 +22,7 @@ import AddNewSlot from "../pages/Dashboard/AddNewSlot";
 import AddNewForum from "../pages/Dashboard/AddNewForum";
 import ActivityLog from "../pages/Dashboard/ActivityLog";
 import ProfilePage from "../pages/Dashboard/ProfilePage";
+import TrainerBooked from "../pages/Dashboard/TrainerBooked";
 
 export const router = createBrowserRouter([
   {
@@ -123,6 +124,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/profilePage",
         element: <ProfilePage />,
+      },
+      {
+        path: "/dashboard/trainerBooked",
+        element: <TrainerBooked />,
       },
     ],
   },
