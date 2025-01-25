@@ -8,6 +8,8 @@ import { Button, Checkbox, Label } from "flowbite-react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import Swal from "sweetalert2";
+import useTrainer from "../hooks/useTrainer";
+import useClasses from "../hooks/useClasses";
 
 const image_hoting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -18,6 +20,7 @@ const BecomeTrainer = () => {
   const axiosSecure = useAxiosSecure();
   const { register, handleSubmit, reset, control } = useForm();
   const { user } = useContext(AuthContext);
+  const [classesData] = useClasses();
 
   const animatedComponents = makeAnimated();
 
@@ -53,12 +56,11 @@ const BecomeTrainer = () => {
       const availableSlots = data.availableDays.map(
         (day) => `${day.value} ${data.AvailableTime}`
       );
+
+      const classNames = data.className.map((option) => option.value);
       const trainerData = {
         trainerName: data.name,
         email: data.email,
-        // Now correctly gets the selected days array
-        //   availableDays: data.availableDays, // This will be an array of selected values
-        //   availableTime: data.AvailableTime,
         availableSlots: availableSlots,
         details: data.details,
         age: parseInt(data.Age),
@@ -68,7 +70,10 @@ const BecomeTrainer = () => {
         expertise: skills, // Array of selected skills
         status: "pending",
         profileImage: res.data.data.display_url,
+        className: classNames,
       };
+
+      console.log(trainerData);
 
       const trainerRes = await axiosSecure.post("/appliedTrainer", trainerData);
       console.log(trainerRes.data);
@@ -85,11 +90,12 @@ const BecomeTrainer = () => {
         });
       }
     }
-
-    // Create the trainer data object
-
-    // console.log(trainerData);
   };
+
+  const classOptions = classesData.map((item) => ({
+    value: item.className,
+    label: item.className,
+  }));
 
   const options = [
     { value: "saturday", label: "saturday" },
@@ -180,8 +186,6 @@ const BecomeTrainer = () => {
               <span className="label-text">Details</span>
             </div>
             <textarea
-              //   cols={}
-
               {...register("details", { required: true })}
               className="textarea textarea-bordered h-24 max-w-md w-full"
               placeholder="trainer details"
@@ -241,6 +245,30 @@ const BecomeTrainer = () => {
               className="input input-bordered w-full "
             />
           </label>
+
+          {/* select a class */}
+          <div className="mt-4">
+            <label className="form-control w-full mt-5">
+              <div className="label">
+                <span className="label-text">Select a class</span>
+              </div>
+
+              <Controller
+                name="className" // This replaces register
+                control={control}
+                rules={{ required: true }} // Validation rules go here
+                render={({ field }) => (
+                  <Select
+                    {...field}
+                    isMulti
+                    // closeMenuOnSelect={false}
+                    components={animatedComponents}
+                    options={classOptions}
+                  />
+                )}
+              />
+            </label>
+          </div>
 
           {/* skill checkbox */}
           <div className="label mt-4">

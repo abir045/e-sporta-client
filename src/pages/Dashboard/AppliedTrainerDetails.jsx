@@ -29,6 +29,7 @@ const AppliedTrainerDetails = () => {
     status: "trainer",
     profileImage: trainerData.profileImage,
     role: "trainer",
+    classes: trainerData.className,
   };
 
   console.log(trainerData._id);
@@ -118,6 +119,18 @@ const AppliedTrainerDetails = () => {
             <span className="font-bold ">years Of Experience</span>{" "}
             {trainerData.yearsOfExperience}
           </p>
+
+          {/* classes */}
+          <p className="font-bold">Classes:</p>
+          <div className="flex flex-col gap-6">
+            <ul>
+              {trainerData.className.map((item, index) => (
+                <li key={index} className="font-semibold">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
 
           <p className="font-bold">Available Slots:</p>
           <div className="flex flex-col gap-6">

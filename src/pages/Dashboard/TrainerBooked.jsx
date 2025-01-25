@@ -20,6 +20,7 @@ const TrainerBooked = () => {
   const { register, handleSubmit, reset } = useForm();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
+  const [currentTrainer, setCurrentTrainer] = useState("");
   const { user } = useAuth();
 
   const { data: payments = [] } = useQuery({
@@ -31,13 +32,14 @@ const TrainerBooked = () => {
   });
 
   const onSubmit = (data) => {
-    // event.preventDefault();
-    console.log(data.email, data.comment, rating);
     const reviewData = {
       email: data.email,
       review: data.comment,
       Rating: rating,
+      trainerName: currentTrainer,
     };
+
+    console.log(reviewData);
 
     axiosSecure.post("/testimonials", reviewData).then((res) => {
       if (res.data.insertedId) {
@@ -45,7 +47,7 @@ const TrainerBooked = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: `Your post is added to the forum page`,
+          title: `Your review is added to the review page`,
           showConfirmButton: false,
           timer: 1500,
         });
@@ -75,7 +77,7 @@ const TrainerBooked = () => {
             <Table.HeadCell>Action</Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            {payments.map((item) => (
+            {payments?.map((item) => (
               <Table.Row
                 key={item._id}
                 className="bg-white dark:border-gray-700 dark:bg-gray-800"
@@ -90,7 +92,14 @@ const TrainerBooked = () => {
                 <Table.Cell>{item.price}</Table.Cell>
                 <Table.Cell>{item.date}</Table.Cell>
                 <Table.Cell>
-                  <Button onClick={() => setOpenModal(true)}>Review</Button>{" "}
+                  <Button
+                    onClick={() => {
+                      setCurrentTrainer(item.trainerName);
+                      setOpenModal(true);
+                    }}
+                  >
+                    Review
+                  </Button>{" "}
                 </Table.Cell>
               </Table.Row>
             ))}
@@ -114,6 +123,7 @@ const TrainerBooked = () => {
                   defaultValue={user?.email}
                   id="email1"
                   type="email"
+                  readOnly
                   {...register("email", { required: true })}
                   placeholder="name@flowbite.com"
                   required
