@@ -24,6 +24,7 @@ import ActivityLog from "../pages/Dashboard/ActivityLog";
 import ProfilePage from "../pages/Dashboard/ProfilePage";
 import TrainerBooked from "../pages/Dashboard/TrainerBooked";
 import AdminRoute from "./AdminRoute";
+import TrainerRoute from "./TrainerRoute";
 
 export const router = createBrowserRouter([
   {
@@ -129,11 +130,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/manageSlots",
-        element: <TrainerManageSlot />,
+        element: (
+          <TrainerRoute>
+            <TrainerManageSlot />
+          </TrainerRoute>
+        ),
       },
       {
         path: "/dashboard/addNewSlot",
-        element: <AddNewSlot />,
+        element: (
+          <TrainerRoute>
+            <AddNewSlot />
+          </TrainerRoute>
+        ),
       },
       {
         path: "/dashboard/addNewForum",
