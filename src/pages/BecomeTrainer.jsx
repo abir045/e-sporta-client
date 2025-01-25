@@ -74,6 +74,7 @@ const BecomeTrainer = () => {
       console.log(trainerRes.data);
       if (trainerRes.data.insertedId) {
         //show success op up
+        axiosSecure.patch(`/trainers/applied/${user.email}`);
         reset();
         Swal.fire({
           position: "top-end",

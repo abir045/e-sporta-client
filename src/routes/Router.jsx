@@ -20,6 +20,8 @@ import AddNewClass from "../pages/Dashboard/AddNewClass";
 import TrainerManageSlot from "../pages/Dashboard/TrainerManageSlot";
 import AddNewSlot from "../pages/Dashboard/AddNewSlot";
 import AddNewForum from "../pages/Dashboard/AddNewForum";
+import ActivityLog from "../pages/Dashboard/ActivityLog";
+import ProfilePage from "../pages/Dashboard/ProfilePage";
 
 export const router = createBrowserRouter([
   {
@@ -112,6 +114,15 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addNewForum",
         element: <AddNewForum />,
+      },
+
+      {
+        path: "/dashboard/activityLog",
+        element: <ActivityLog />,
+      },
+      {
+        path: "/dashboard/profilePage",
+        element: <ProfilePage />,
       },
     ],
   },

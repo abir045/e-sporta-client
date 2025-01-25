@@ -67,6 +67,7 @@ const AppliedTrainerDetails = () => {
       .post("/rejected", rejectedData)
       .then((res) => {
         if (res.data.insertedId) {
+          axiosSecure.patch(`/trainers/rejected/${trainerData.email}`);
           return axiosSecure.delete(`/appliedTrainer/${trainerData._id}`);
         }
       })

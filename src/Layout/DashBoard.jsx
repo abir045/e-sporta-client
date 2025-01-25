@@ -2,13 +2,14 @@ import React from "react";
 import { AiOutlineFileAdd } from "react-icons/ai";
 import { FaBalanceScale, FaHome, FaUser } from "react-icons/fa";
 import { IoPerson } from "react-icons/io5";
+import { LuLogs } from "react-icons/lu";
 import {
   MdAddBox,
   MdAddToPhotos,
   MdCardMembership,
   MdManageAccounts,
 } from "react-icons/md";
-import { RiUserCommunityFill } from "react-icons/ri";
+import { RiProfileFill, RiUserCommunityFill } from "react-icons/ri";
 import { SiTrainerroad } from "react-icons/si";
 import { VscGitStashApply } from "react-icons/vsc";
 import { NavLink, Outlet } from "react-router-dom";
@@ -94,6 +95,22 @@ const DashBoard = () => {
                 className="flex items-center gap-2 mt-4"
               >
                 <AiOutlineFileAdd /> Add a new Post to Forum
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/activityLog"
+                className="flex items-center gap-2 mt-4"
+              >
+                <LuLogs /> Activity Log
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/dashboard/profilePage"
+                className="flex items-center gap-2 mt-4"
+              >
+                <RiProfileFill /> Profile Page
               </NavLink>
             </li>
 
