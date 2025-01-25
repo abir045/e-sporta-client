@@ -14,23 +14,77 @@ import { RiProfileFill, RiUserCommunityFill } from "react-icons/ri";
 import { SiTrainerroad } from "react-icons/si";
 import { VscGitStashApply } from "react-icons/vsc";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
+import useCheckTrainer from "../hooks/usecheckTrainer";
 
 const DashBoard = () => {
+  const [isAdmin] = useAdmin();
+  const [isTrainer] = useCheckTrainer();
+
   return (
     <div>
       <div className="flex max-w-7xl mx-auto">
         {/* dashboard side bar */}
         <div className="w-64 min-h-screen bg-green-400 pl-4">
           <ul>
-            <li>
-              <NavLink
-                to="/dashboard/balance"
-                className="flex items-center gap-2 mt-4"
-              >
-                <FaBalanceScale /> Balance
-              </NavLink>
-            </li>
-            <li>
+            {isAdmin ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/balance"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <FaBalanceScale /> Balance
+                  </NavLink>
+                </li>
+
+                <li>
+                  <NavLink
+                    className="flex items-center gap-2 mt-4"
+                    to="/dashboard/newsSubscribers"
+                  >
+                    <MdCardMembership />
+                    All Newsletter subscribers
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/trainers"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <SiTrainerroad /> All Trainers
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/appliedTrainer"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <VscGitStashApply /> Applied Trainer
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addNewClass"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <MdAddBox /> Add New Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addNewForum"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <AiOutlineFileAdd /> Add a new Post to Forum
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+
+            {/* <li>
               <NavLink
                 className="flex items-center gap-2 mt-4"
                 to="/dashboard/users"
@@ -38,90 +92,70 @@ const DashBoard = () => {
                 {" "}
                 <FaUser /> All Users
               </NavLink>
-            </li>
+            </li> */}
 
-            <li>
-              <NavLink
-                className="flex items-center gap-2 mt-4"
-                to="/dashboard/newsSubscribers"
-              >
-                <MdCardMembership />
-                All Newsletter subscribers
-              </NavLink>
-            </li>
+            {isTrainer ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/manageSlots"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <MdManageAccounts /> Manage Slots
+                  </NavLink>
+                </li>
 
-            <li>
-              <NavLink
-                to="/dashboard/trainers"
-                className="flex items-center gap-2 mt-4"
-              >
-                <SiTrainerroad /> All Trainers
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/appliedTrainer"
-                className="flex items-center gap-2 mt-4"
-              >
-                <VscGitStashApply /> Applied Trainer
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/addNewClass"
-                className="flex items-center gap-2 mt-4"
-              >
-                <MdAddBox /> Add New Class
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/manageSlots"
-                className="flex items-center gap-2 mt-4"
-              >
-                <MdManageAccounts /> Manage Slots
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/addNewSlot"
-                className="flex items-center gap-2 mt-4"
-              >
-                <MdAddToPhotos /> Add a new Slot
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/addNewForum"
-                className="flex items-center gap-2 mt-4"
-              >
-                <AiOutlineFileAdd /> Add a new Post to Forum
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/activityLog"
-                className="flex items-center gap-2 mt-4"
-              >
-                <LuLogs /> Activity Log
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/profilePage"
-                className="flex items-center gap-2 mt-4"
-              >
-                <RiProfileFill /> Profile Page
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/dashboard/trainerBooked"
-                className="flex items-center gap-2 mt-4"
-              >
-                <MdBookmarks /> Trainer booked Page
-              </NavLink>
-            </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addNewSlot"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <MdAddToPhotos /> Add a new Slot
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/addNewForum"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <AiOutlineFileAdd /> Add a new Post to Forum
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
+
+            {!isAdmin && !isTrainer ? (
+              <>
+                <li>
+                  <NavLink
+                    to="/dashboard/activityLog"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <LuLogs /> Activity Log
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/profilePage"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <RiProfileFill /> Profile Page
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/dashboard/trainerBooked"
+                    className="flex items-center gap-2 mt-4"
+                  >
+                    <MdBookmarks /> Trainer booked Page
+                  </NavLink>
+                </li>
+              </>
+            ) : (
+              ""
+            )}
 
             <hr className="mt-4" />
 
