@@ -6,6 +6,7 @@ import SubscribeNewsLetter from "../components/SubscribeNewsLetter";
 import FeaturedClasses from "../components/FeaturedClasses";
 import Testimonials from "../components/Testimonials";
 import FeaturedForumPosts from "../components/FeaturedForumPosts";
+import Team from "../components/Team";
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <FeaturedClasses />
       <Testimonials />
       <FeaturedForumPosts />
+      <Team />
     </div>
   );
 };
