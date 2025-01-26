@@ -9,7 +9,7 @@ const ActivityLog = () => {
   const { user } = useAuth();
 
   const axiosSecure = useAxiosSecure();
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   const { data: userDetails = {}, refetch } = useQuery({
     queryKey: ["user-data"],
@@ -30,8 +30,6 @@ const ActivityLog = () => {
   const handleShowDetails = () => {
     setOpenModal(true);
   };
-
-  
 
   console.log(userDetails);
 
@@ -54,13 +52,12 @@ const ActivityLog = () => {
           ""
         )} */}
 
-
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
           <Modal.Header>Rejection Details</Modal.Header>
           <Modal.Body>
             <div className="space-y-6">
               <p className="text-base font-bold leading-relaxed text-gray-500 dark:text-gray-400">
-                Feedback: {rejectedFeedBack.feedback}
+                Feedback: {userDetails.feedback}
               </p>
             </div>
           </Modal.Body>

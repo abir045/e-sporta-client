@@ -9,12 +9,12 @@ import useAuth from "../../hooks/useAuth";
 const AppliedTrainerDetails = () => {
   const trainerData = useLoaderData();
   const axiosSecure = useAxiosSecure();
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [rejectionFeedback, setRejectionFeedback] = useState("");
 
   const { user } = useAuth();
 
-  console.log(trainerData);
+  // console.log(trainerData);
 
   const trainerInfo = {
     trainerName: trainerData.trainerName,
@@ -32,7 +32,7 @@ const AppliedTrainerDetails = () => {
     classes: trainerData.className,
   };
 
-  console.log(trainerData._id);
+  // console.log(trainerData._id);
 
   const handleAcceptTrainer = (trainerData) => {
     axiosSecure.post("/trainers", trainerInfo).then((res) => {
@@ -65,9 +65,10 @@ const AppliedTrainerDetails = () => {
     };
     console.log(rejectedData);
     axiosSecure
-      .post("/rejected", rejectedData)
+      // .post("/rejected", rejectedData)
+      .patch(`/users/rejected/${trainerData.email}`, { rejectionFeedback })
       .then((res) => {
-        if (res.data.insertedId) {
+        if (res.data.modifiedCount > 0) {
           axiosSecure.patch(`/trainers/rejected/${trainerData.email}`);
           return axiosSecure.delete(`/appliedTrainer/${trainerData._id}`);
         }
