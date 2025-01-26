@@ -35,7 +35,7 @@ export default function Header() {
         <NavLink to={"/alltrainers"}>All Trainers</NavLink>
 
         <NavLink to="/classes">All Classes</NavLink>
-        <NavLink to="/community">Community</NavLink>
+        <NavLink to="/forum">Forum</NavLink>
 
         {/* <Navbar.Link href="#">Login</Navbar.Link> */}
         {/* <Navbar.Link href="#">Register</Navbar.Link> */}

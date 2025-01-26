@@ -26,6 +26,7 @@ import TrainerBooked from "../pages/Dashboard/TrainerBooked";
 import AdminRoute from "./AdminRoute";
 import TrainerRoute from "./TrainerRoute";
 import AdminTrainerRoute from "./AdminTrainerRoute";
+import Forum from "../pages/Forum";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
       {
         path: "/becomeTrainer",
         element: <BecomeTrainer />,
+      },
+      {
+        path: "/forum",
+        element: <Forum />,
       },
       {
         path: "/register",

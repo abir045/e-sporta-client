@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Footer } from "flowbite-react";
+import gym from "../assets/gym.png";
 
 export default function FooterNav() {
   return (
@@ -10,9 +11,9 @@ export default function FooterNav() {
           <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
             <Footer.Brand
               href="https://flowbite.com"
-              src="https://flowbite.com/docs/images/logo.svg"
+              src={gym}
               alt="Flowbite Logo"
-              name="Flowbite"
+              name="E-Sporta"
             />
             <Footer.LinkGroup>
               <Footer.Link href="#">About</Footer.Link>
@@ -22,7 +23,7 @@ export default function FooterNav() {
             </Footer.LinkGroup>
           </div>
           <Footer.Divider />
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+          <Footer.Copyright href="#" by="E-Sporta™" year={2025} />
         </div>
       </Footer>
     </div>

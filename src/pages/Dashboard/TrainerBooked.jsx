@@ -16,7 +16,7 @@ import Swal from "sweetalert2";
 
 const TrainerBooked = () => {
   const axiosSecure = useAxiosSecure();
-  const [openModal, setOpenModal] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
