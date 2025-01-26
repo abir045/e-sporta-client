@@ -31,6 +31,8 @@ const ActivityLog = () => {
     setOpenModal(true);
   };
 
+  
+
   console.log(userDetails);
 
   return (
@@ -51,6 +53,7 @@ const ActivityLog = () => {
         ) : (
           ""
         )} */}
+
 
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
           <Modal.Header>Rejection Details</Modal.Header>

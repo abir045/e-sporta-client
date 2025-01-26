@@ -104,6 +104,7 @@ const BecomeTrainer = () => {
     { value: "tuesday", label: "tuesday" },
     { value: "wednesday", label: "wednesday" },
     { value: "thursday", label: "thursday" },
+    { value: "friday", label: "friday" },
   ];
 
   return (

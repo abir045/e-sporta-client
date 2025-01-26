@@ -107,14 +107,21 @@ const CheckoutForm = ({
         console.log("payment saved", res.data);
 
         if (res.data.paymentResult?.insertedId) {
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Your payment has been successful",
-            showConfirmButton: false,
-            timer: 1500,
-          });
-          navigate("/");
+          const classUpdateRes = await axiosSecure.patch(
+            `/classes/${payment.className}`,
+            { $inc: { bookingCount: 1 } }
+          );
+
+          if (classUpdateRes.data.modifiedCount) {
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Your payment has been successful",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+            navigate("/");
+          }
         }
       }
     }
