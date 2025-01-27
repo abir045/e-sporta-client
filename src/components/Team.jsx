@@ -13,7 +13,7 @@ const Team = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-6">
         {trainersData.slice(-3).map((item) => (
-          <TrainerCard key={item.id} item={item} />
+          <TrainerCard key={item._id} item={item} />
         ))}
       </div>
     </div>

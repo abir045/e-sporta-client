@@ -40,7 +40,7 @@ const ClassCard = ({ item }) => {
         <div>
           {item.trainerName.map((trainerName, index) => {
             const data = findTrainerData(trainerName);
-            console.log(data);
+            // console.log(data);
             return (
               <div className="flex gap-2" key={data?._id}>
                 {/* <span>{data.trainerName}</span> */}
