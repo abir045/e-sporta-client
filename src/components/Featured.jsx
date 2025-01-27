@@ -7,7 +7,7 @@ import yoga from "../assets/yoga.jpg";
 
 const Featured = () => {
   return (
-    <div className="mt-20">
+    <div className="mt-20 mb-20">
       <h5 className="text-center text-xl font-bold">Our Services</h5>
       <h3 className="text-center text-3xl font-bold">
         Bring Your Fitness Ideas To Life

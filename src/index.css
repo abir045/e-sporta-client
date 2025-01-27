@@ -7,3 +7,7 @@
   height: 400px; /* Set fixed height */
   object-fit: cover;
 }
+
+.custom-card {
+  height: 600px;
+}

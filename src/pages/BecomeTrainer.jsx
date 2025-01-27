@@ -8,7 +8,7 @@ import { Button, Checkbox, Label } from "flowbite-react";
 import Select from "react-select";
 import makeAnimated from "react-select/animated";
 import Swal from "sweetalert2";
-import useTrainer from "../hooks/useTrainer";
+// import useTrainer from "../hooks/useTrainer";
 import useClasses from "../hooks/useClasses";
 
 const image_hoting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
@@ -343,7 +343,7 @@ const BecomeTrainer = () => {
           </div>
 
           <Button className="" type="submit">
-            Add Item{" "}
+            Apply{" "}
           </Button>
           {/* <input type="submit" /> */}
         </form>

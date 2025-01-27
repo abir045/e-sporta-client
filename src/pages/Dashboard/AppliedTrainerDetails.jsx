@@ -215,9 +215,9 @@ const AppliedTrainerDetails = () => {
                 ))}
               </ul>
 
-              <p className="font-normal  dark:text-gray-400">
+              {/* <p className="font-normal  dark:text-gray-400">
                 <span className="font-bold ">Role:</span> {trainerData.role}
-              </p>
+              </p> */}
 
               <div className="max-w-md">
                 <div className="mb-2 block">

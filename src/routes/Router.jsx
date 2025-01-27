@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         path: "/alltrainers/:id",
         element: <TrainerDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/trainers/${params.id}`),
+          fetch(`https://e-sporta-server.vercel.app/trainers/${params.id}`),
       },
       {
         path: "/booking",
@@ -137,7 +137,9 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/appliedTrainer/${params.id}`),
+          fetch(
+            `https://e-sporta-server.vercel.app/appliedTrainer/${params.id}`
+          ),
       },
       {
         path: "/dashboard/balance",

@@ -4,6 +4,7 @@ import hero from "../assets/hero.jpg";
 import hero2 from "../assets/hero2.jpg";
 import hero3 from "../assets/hero3.jpg";
 import hero4 from "../assets/hero4.jpg";
+import { Link } from "react-router-dom";
 
 const HeroBanner = () => {
   return (
@@ -21,7 +22,10 @@ const HeroBanner = () => {
               Whether your aim is to loose weight, tone up, gain weight we can
               put together a gym program specially tailored for you.
             </p>
-            <Button className="mt-10">classes</Button>
+
+            <Link to={"/classes"}>
+              <Button className="mt-10">classes</Button>
+            </Link>
           </div>
         </div>
       </div>
