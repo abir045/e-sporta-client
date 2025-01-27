@@ -27,6 +27,7 @@ import AdminRoute from "./AdminRoute";
 import TrainerRoute from "./TrainerRoute";
 import AdminTrainerRoute from "./AdminTrainerRoute";
 import Forum from "../pages/Forum";
+import PrivateRoute from "../providers/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -50,11 +51,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "/booking",
-        element: <TrainerBooking />,
+        element: (
+          <PrivateRoute>
+            <TrainerBooking />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/payment",
-        element: <Payment />,
+        element: (
+          <PrivateRoute>
+            <Payment />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/classes",
@@ -62,7 +71,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/becomeTrainer",
-        element: <BecomeTrainer />,
+        element: (
+          <PrivateRoute>
+            <BecomeTrainer />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/forum",
@@ -80,7 +93,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashBoard />,
+    element: (
+      <PrivateRoute>
+        <DashBoard />
+      </PrivateRoute>
+    ),
     children: [
       // {
       //   path: "/dashboard/users",
@@ -114,7 +131,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/dashboard/appliedTrainers/:id",
-        element: <AppliedTrainerDetails />,
+        element: (
+          <AdminRoute>
+            <AppliedTrainerDetails />
+          </AdminRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/appliedTrainer/${params.id}`),
       },
@@ -161,15 +182,27 @@ export const router = createBrowserRouter([
 
       {
         path: "/dashboard/activityLog",
-        element: <ActivityLog />,
+        element: (
+          <PrivateRoute>
+            <ActivityLog />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/profilePage",
-        element: <ProfilePage />,
+        element: (
+          <PrivateRoute>
+            <ProfilePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/trainerBooked",
-        element: <TrainerBooked />,
+        element: (
+          <PrivateRoute>
+            <TrainerBooked />
+          </PrivateRoute>
+        ),
       },
     ],
   },

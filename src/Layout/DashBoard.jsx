@@ -11,21 +11,34 @@ import {
   MdManageAccounts,
 } from "react-icons/md";
 import { RiProfileFill, RiUserCommunityFill } from "react-icons/ri";
-import { SiTrainerroad } from "react-icons/si";
+import { SiGoogleclassroom, SiTrainerroad } from "react-icons/si";
 import { VscGitStashApply } from "react-icons/vsc";
-import { NavLink, Outlet } from "react-router-dom";
+import { Navigate, NavLink, Outlet, useLocation } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useCheckTrainer from "../hooks/usecheckTrainer";
 
 const DashBoard = () => {
   const [isAdmin] = useAdmin();
   const [isTrainer] = useCheckTrainer();
+  const location = useLocation();
+
+  if (isAdmin && location.pathname === "/dashboard") {
+    return <Navigate to="/dashboard/balance" replace />;
+  }
+
+  if (isTrainer && location.pathname === "/dashboard") {
+    return <Navigate to="/dashboard/manageSlots" replace />;
+  }
+
+  if (!isAdmin && !isTrainer && location.pathname === "/dashboard") {
+    return <Navigate to="/dashboard/activityLog" replace />;
+  }
 
   return (
     <div>
-      <div className="flex max-w-7xl mx-auto">
+      <div className="md:flex ">
         {/* dashboard side bar */}
-        <div className="w-64 min-h-screen bg-green-400 pl-4">
+        <div className="lg:w-64 min-h-screen bg-green-400 pl-4">
           <ul>
             {isAdmin ? (
               <>
@@ -83,16 +96,6 @@ const DashBoard = () => {
             ) : (
               ""
             )}
-
-            {/* <li>
-              <NavLink
-                className="flex items-center gap-2 mt-4"
-                to="/dashboard/users"
-              >
-                {" "}
-                <FaUser /> All Users
-              </NavLink>
-            </li> */}
 
             {isTrainer ? (
               <>
@@ -175,8 +178,16 @@ const DashBoard = () => {
             </li>
 
             <li>
-              <NavLink className="flex items-center gap-2 mt-4" to="/community">
-                <RiUserCommunityFill /> Community
+              <NavLink className="flex items-center gap-2 mt-4" to="/classes">
+                <SiGoogleclassroom /> All Classes
+              </NavLink>
+            </li>
+
+            <li>
+              {" "}
+              <NavLink className="flex items-center gap-2 mt-4" to="/forum">
+                {" "}
+                <RiUserCommunityFill /> Forum
               </NavLink>
             </li>
           </ul>

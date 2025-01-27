@@ -42,15 +42,13 @@ const ActivityLog = () => {
           Status: {userDetails.status}
         </Badge>
 
-        <Button className="mt-10" onClick={handleShowDetails}>
-          <FaEye />
-        </Button>
-
-        {/* {userDetails.status === "rejected" ? (
-          <p>Feedback: {rejectedFeedBack.feedback}</p>
+        {userDetails.status === "rejected" ? (
+          <Button className="mt-10" onClick={handleShowDetails}>
+            <FaEye />
+          </Button>
         ) : (
           ""
-        )} */}
+        )}
 
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
           <Modal.Header>Rejection Details</Modal.Header>
