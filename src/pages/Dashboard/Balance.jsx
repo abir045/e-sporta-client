@@ -99,7 +99,7 @@ const Balance = () => {
           </Table>
         </div>
 
-        <div className="flex my-10">
+        <div className="flex my-10 overflow-x-auto">
           {/* bar chart */}
           <div className="w-1/2">
             <BarChart
