@@ -10,6 +10,7 @@ import makeAnimated from "react-select/animated";
 import Swal from "sweetalert2";
 // import useTrainer from "../hooks/useTrainer";
 import useClasses from "../hooks/useClasses";
+import { Helmet } from "react-helmet-async";
 
 const image_hoting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -109,6 +110,9 @@ const BecomeTrainer = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Become a Trainer</title>
+      </Helmet>
       <h2 className="text-center text-3xl font-bold  my-10">
         Become a Trainer
       </h2>

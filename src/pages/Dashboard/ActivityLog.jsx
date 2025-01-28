@@ -4,6 +4,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Badge, Button, Modal } from "flowbite-react";
 import { FaEye } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const ActivityLog = () => {
   const { user } = useAuth();
@@ -35,6 +36,9 @@ const ActivityLog = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Activity Log </title>
+      </Helmet>
       <h2 className="text-2xl font-bol text-center my-10">Activity Log</h2>
 
       <div>

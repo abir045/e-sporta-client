@@ -56,20 +56,20 @@ const ForumPageCard = ({ item }) => {
         <div className="flex items-center mt-4">
           <button
             onClick={handleUpvote}
-            className={`px-2 py-1 mr-2 border rounded ${
+            className={`px-2 py-1 mr-2 border rounded flex items-center ${
               userVote === "up" ? "bg-green-500 text-white" : "border-gray-300"
             }`}
           >
-            <FaLongArrowAltUp />
+            <FaLongArrowAltUp /> Up vote
           </button>
           <span className="text-lg font-bold">{item?.upvote}</span>
           <button
             onClick={handleDownvote}
-            className={`px-2 py-1 ml-2 border rounded ${
+            className={`px-2 py-1 ml-2 border rounded flex items-center ${
               userVote === "down" ? "bg-red-500 text-white" : "border-gray-300"
             }`}
           >
-            <FaLongArrowAltDown />
+            <FaLongArrowAltDown /> Down vote
           </button>
         </div>
       </Card>

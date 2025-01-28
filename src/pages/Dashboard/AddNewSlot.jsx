@@ -6,6 +6,7 @@ import Select from "react-select";
 import { Button, Checkbox, Label } from "flowbite-react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddNewSlot = () => {
   const [trainersData, refetch] = useTrainer();
@@ -62,6 +63,9 @@ const AddNewSlot = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Add a New Slot </title>
+      </Helmet>
       <h2 className="text-2xl text-center font-bold my-8">Add New Slot</h2>
 
       <div className="max-w-6xl mx-auto px-5">

@@ -5,6 +5,7 @@ import useAuth from "../hooks/useAuth";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../components/CheckoutForm";
+import { Helmet } from "react-helmet-async";
 
 const Payment = () => {
   const location = useLocation();
@@ -16,6 +17,9 @@ const Payment = () => {
   console.log(trainer, selectedSlot, ChosenPackage);
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Payment</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center my-10">
         Payment Confirmation
       </h2>

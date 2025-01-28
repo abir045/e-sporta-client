@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../components/SocialLogin";
 import { Button, Card } from "flowbite-react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -43,7 +44,10 @@ const Login = () => {
 
   return (
     <div className="">
-      <h2 className="text-center text-3xl">Login Now!</h2>
+      <Helmet>
+        <title>E-Sporta | Login</title>
+      </Helmet>
+      <h2 className="text-center text-3xl mt-20">Login Now!</h2>
       <div className="flex flex-col items-center mt-10 ">
         <Card className="w-full max-w-3xl mx-auto">
           <form onSubmit={handleLogin} className="">

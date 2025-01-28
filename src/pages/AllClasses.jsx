@@ -3,6 +3,7 @@ import useClasses from "../hooks/useClasses";
 import ClassCard from "../components/ClassCard";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const AllClasses = () => {
   // const [classesData] = useClasses();
@@ -47,6 +48,9 @@ const AllClasses = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | All Classes</title>
+      </Helmet>
       <h2 className="text-3xl mt-10 mb-10 text-center font-bold">
         ALL CLASSES
       </h2>

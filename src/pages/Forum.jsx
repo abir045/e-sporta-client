@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import ForumPageCard from "../components/ForumPageCard";
+import { Helmet } from "react-helmet-async";
 
 const Forum = () => {
   const axiosPublic = useAxiosPublic();
@@ -23,6 +24,9 @@ const Forum = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Forum</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center my-10">Forum Page</h2>
 
       <div className="grid grid-cols-1 gap-10 max-w-7xl mx-auto">

@@ -2,6 +2,7 @@ import { Table } from "flowbite-react";
 import React from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
 
 const Subscribers = () => {
   const axiosSecure = useAxiosSecure();
@@ -16,6 +17,9 @@ const Subscribers = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Newsletter Subscribers</title>
+      </Helmet>
       <h2 className="text-2xl font-bold text-center my-10">All Subscribers</h2>
 
       <div className="overflow-x-auto">

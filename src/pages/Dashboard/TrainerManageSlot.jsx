@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const TrainerManageSlot = () => {
   const [trainersData, refetch] = useTrainer();
@@ -73,6 +74,9 @@ const TrainerManageSlot = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Manage a Slot </title>
+      </Helmet>
       <h2 className="text-2xl font-bold text-center my-10">Manage Slots</h2>
 
       <div className="overflow-x-auto">

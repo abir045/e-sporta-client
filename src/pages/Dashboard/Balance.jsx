@@ -3,6 +3,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Badge, Table } from "flowbite-react";
 import { Bar, BarChart, CartesianGrid, Cell, XAxis, YAxis } from "recharts";
+import { Helmet } from "react-helmet-async";
 
 const colors = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "red", "pink"];
 
@@ -49,6 +50,9 @@ const Balance = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Balance</title>
+      </Helmet>
       <h2 className="text-2xl text-center font-bold my-10">Balance</h2>
 
       <Badge color="gray" className="max-w-sm p-4 text-xl">

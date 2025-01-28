@@ -7,10 +7,14 @@ import FeaturedClasses from "../components/FeaturedClasses";
 import Testimonials from "../components/Testimonials";
 import FeaturedForumPosts from "../components/FeaturedForumPosts";
 import Team from "../components/Team";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Home</title>
+      </Helmet>
       <Banner />
       <Featured />
       <About />

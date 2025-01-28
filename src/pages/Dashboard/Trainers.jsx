@@ -5,6 +5,7 @@ import { FaTrash } from "react-icons/fa";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const Trainers = () => {
   const [trainersData, refetch] = useTrainer();
@@ -43,6 +44,9 @@ const Trainers = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | All Trainers</title>
+      </Helmet>
       <h2 className="text-2xl font-bold text-center my-10">All Trainers</h2>
       <div className="overflow-x-auto">
         <Table>

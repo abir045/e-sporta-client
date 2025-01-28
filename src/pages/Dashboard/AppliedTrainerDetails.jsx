@@ -5,6 +5,7 @@ import { useLoaderData } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import useAuth from "../../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const AppliedTrainerDetails = () => {
   const trainerData = useLoaderData();
@@ -88,7 +89,10 @@ const AppliedTrainerDetails = () => {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-center my-8">Trainer Details</h2>
+      <h2 className="text-2xl font-bold text-center my-10">Trainer Details</h2>
+      <Helmet>
+        <title>E-Sporta | Applied Trainer Details </title>
+      </Helmet>
 
       <div>
         <Card

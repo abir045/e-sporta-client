@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import { Button, Card } from "flowbite-react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const {
@@ -52,7 +53,10 @@ const Register = () => {
 
   return (
     <div>
-      <h2 className="text-3xl text-center">Register Now</h2>
+      <Helmet>
+        <title>E-Sporta | Register</title>
+      </Helmet>
+      <h2 className="text-3xl text-center mt-20">Register Now</h2>
 
       <div className="mt-10">
         <Card className="max-w-5xl mx-auto">

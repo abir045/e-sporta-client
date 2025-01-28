@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const AddNewForum = () => {
   const { user } = useAuth();
@@ -37,6 +38,9 @@ const AddNewForum = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Add a New Post </title>
+      </Helmet>
       <h2 className="text-2xl font-bold text-center my-10">Add a new Post</h2>
       <div>
         <form

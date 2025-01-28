@@ -1,5 +1,6 @@
 import { Button, Card, Radio } from "flowbite-react";
 import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLocation } from "react-router-dom";
 
 const TrainerBooking = () => {
@@ -52,6 +53,9 @@ const TrainerBooking = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Trainer Booking</title>
+      </Helmet>
       <h2 className="text-center font-bold text-3xl my-10">Booking</h2>
 
       <div className="flex justify-center">

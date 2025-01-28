@@ -1,5 +1,6 @@
 import { Button, Card } from "flowbite-react";
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { Link, useLoaderData, useLocation } from "react-router-dom";
 
 const TrainerDetails = () => {
@@ -20,6 +21,9 @@ const TrainerDetails = () => {
   const { selectedClass } = location.state || {};
   return (
     <div className="flex flex-col items-center">
+      <Helmet>
+        <title>E-Sporta | Trainer Details</title>
+      </Helmet>
       <h2 className="text-3xl font-bold my-10">Trainer Details</h2>
 
       <div>

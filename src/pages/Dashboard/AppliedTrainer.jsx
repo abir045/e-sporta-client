@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Button, Table } from "flowbite-react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const AppliedTrainer = () => {
   const axiosPublic = useAxiosPublic();
@@ -20,6 +21,9 @@ const AppliedTrainer = () => {
   return (
     <div>
       <h2 className="text-2xl font-bold text-center my-10">Applied Trainers</h2>
+      <Helmet>
+        <title>E-Sporta | Applied Trainers </title>
+      </Helmet>
 
       <div className="overflow-x-auto">
         <Table>

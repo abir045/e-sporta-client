@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import moment from "moment";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const ProfilePage = () => {
   const { user, updateUserProfile } = useAuth();
@@ -26,6 +27,9 @@ const ProfilePage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Profile Page </title>
+      </Helmet>
       <h2 className="text-2xl font-bold my-10 text-center">Profile Page</h2>
 
       <form

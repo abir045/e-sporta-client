@@ -34,7 +34,7 @@ const SubscribeNewsLetter = () => {
     });
   };
   return (
-    <div className="bg-[#155E75] flex flex-col items-center max-w-7xl mx-auto mt-20">
+    <div className="bg-[#155E75] flex flex-col items-center max-w-7xl mx-auto mt-20 px-5">
       <div>
         <h2 className="my-10 font-bold text-3xl text-white">
           Subscribe To Our Newsletter

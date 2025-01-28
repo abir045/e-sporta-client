@@ -6,6 +6,7 @@ import Select from "react-select";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const image_hoting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 
@@ -70,6 +71,10 @@ const AddNewClass = () => {
   return (
     <div>
       <h2 className="text2xl font-bold text-center my-10">Add a new Class</h2>
+
+      <Helmet>
+        <title>E-Sporta | Add a new Class </title>
+      </Helmet>
 
       <div>
         <form

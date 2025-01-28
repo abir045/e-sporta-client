@@ -13,6 +13,7 @@ import {
 import { useForm } from "react-hook-form";
 import { FaStar } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
 
 const TrainerBooked = () => {
   const axiosSecure = useAxiosSecure();
@@ -60,6 +61,9 @@ const TrainerBooked = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>E-Sporta | Trainer Booked </title>
+      </Helmet>
       <h2 className="text-2xl font-bold text-center my-10">
         Trainer Booked Page
       </h2>
