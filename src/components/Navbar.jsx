@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Button, Navbar } from "flowbite-react";
 import { MdFitnessCenter } from "react-icons/md";
 import gym from "../assets/gym.png";
