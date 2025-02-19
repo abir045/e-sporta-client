@@ -28,11 +28,13 @@ import TrainerRoute from "./TrainerRoute";
 import AdminTrainerRoute from "./AdminTrainerRoute";
 import Forum from "../pages/Forum";
 import PrivateRoute from "../providers/PrivateRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
